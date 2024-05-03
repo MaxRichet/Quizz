@@ -116,13 +116,21 @@ export default class Quizz extends React.Component{
                     <Text style={style.title}>{this.state.score}</Text>
                     <Text style={style.title}>Questions</Text>
                     <Text>{this.state.data[this.state.currentQuestion].question}</Text>
-                    <Button title={this.state.data[this.state.currentQuestion].answers[0]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[0]) } style={style.button} ></Button>
+                    <View style={{position: 'relative', backgroundColor: "#036ffc", borderRadius: 10, top: 50}}>
+                        <Button color={'#FFF'} title={this.state.data[this.state.currentQuestion].answers[0]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[0]) } style={style.button} ></Button>
+                    </View>
 
-                    <Button title={this.state.data[this.state.currentQuestion].answers[1]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[1]) } style={style.button} ></Button>
+                    <View style={{position: 'relative', backgroundColor: "#036ffc", borderRadius: 10, top: 70}}>
+                        <Button color={'#FFF'} title={this.state.data[this.state.currentQuestion].answers[1]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[1]) } style={style.button} ></Button>
+                    </View>
 
-                    <Button title={this.state.data[this.state.currentQuestion].answers[2]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[2]) } style={style.button} ></Button>
+                    <View style={{position: 'relative', backgroundColor: "#036ffc", borderRadius: 10, top: 90}}>
+                        <Button color={'#FFF'} title={this.state.data[this.state.currentQuestion].answers[2]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[2]) } style={style.button} ></Button>
+                    </View>
 
-                    <Button title={this.state.data[this.state.currentQuestion].answers[3]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[3]) } style={style.button} ></Button>
+                    <View style={{position: 'relative', backgroundColor: "#036ffc", borderRadius: 10, top: 110}}>
+                        <Button color={'#FFF'} title={this.state.data[this.state.currentQuestion].answers[3]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[3]) } style={style.button} ></Button>
+                    </View>
                 </View>
             )
         }

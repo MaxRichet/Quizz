@@ -16,10 +16,21 @@ export default StyleSheet.create({
         fontSize: 25,
         alignContent: 'center',
         fontWeight: 'bold',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        textAlign: 'center',
+        marginBottom: 10
     },
     button: {
         position: 'absolute',
         bottom: 0
+    },
+    quizz: {
+        marginHorizontal: 30,
+        textAlign: 'center'
+    },
+    titleHome: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: '#036ffc'
     }
 })

@@ -6,7 +6,7 @@ export default class Home extends React.Component{
     render(){
         return(
             <View>
-                <Text>Bienvenue sur le quizz</Text>
+                <Text style={style.titleHome}>Bienvenue sur le kuizzzz</Text>
             </View>
         )
     }

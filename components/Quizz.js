@@ -71,11 +71,13 @@ export default class Quizz extends React.Component{
         if(answer == this.state.data[this.state.currentQuestion].correct_answer){
             this.state.correctAnswer++
         }
-        console.log(this.state.correctAnswer)
-        if(this.state.data.length - 1 >= this.state.currentQuestion){
+        console.log(this.state.currentQuestion)
+        console.log(this.state.data.length - 1)
+        if(this.state.data.length - 2 >= this.state.currentQuestion){
             this.state.currentQuestion++
         } else {
             this.setState({data : null})
+            this.setState({currentQuestion : 0})
             this.fetchQuestions()
         }
         this.score()
@@ -110,17 +112,17 @@ export default class Quizz extends React.Component{
             )
         } else {
             return(
-                <View>
+                <View style={style.quizz}>
                     <Text style={style.title}>{this.state.score}</Text>
                     <Text style={style.title}>Questions</Text>
                     <Text>{this.state.data[this.state.currentQuestion].question}</Text>
-                    <Button title={this.state.data[this.state.currentQuestion].answers[0]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[0]) }></Button>
+                    <Button title={this.state.data[this.state.currentQuestion].answers[0]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[0]) } style={style.button} ></Button>
 
-                    <Button title={this.state.data[this.state.currentQuestion].answers[1]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[1]) }></Button>
+                    <Button title={this.state.data[this.state.currentQuestion].answers[1]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[1]) } style={style.button} ></Button>
 
-                    <Button title={this.state.data[this.state.currentQuestion].answers[2]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[2]) }></Button>
+                    <Button title={this.state.data[this.state.currentQuestion].answers[2]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[2]) } style={style.button} ></Button>
 
-                    <Button title={this.state.data[this.state.currentQuestion].answers[3]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[3]) }></Button>
+                    <Button title={this.state.data[this.state.currentQuestion].answers[3]} onPress={ () => this.submit(this.state.data[this.state.currentQuestion].answers[3]) } style={style.button} ></Button>
                 </View>
             )
         }

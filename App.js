@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { FontAwesome } from '@expo/vector-icons'
 
 import style from './style.js'
 import Home from './components/Home.js'
@@ -48,7 +49,23 @@ function SettingsquizzScreen({route, navigation}){
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions= {({route}) => ({
+          tabBarIcon : ({focused, color, size}) => {
+  
+            let name = 'asterisk'
+  
+            if(route.name === 'Home')
+              name='home'
+            else if(route.name === 'StartQuizz')
+              name = 'question'
+  
+            return <FontAwesome name={name} size={24} color={color} />
+          },
+          tabBarActiveTintColor : '#036ffc',
+          tabBarInactiveColor : '#333333',
+        })}
+      >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="StartQuizz" component={StartquizzScreen} />
       </Tab.Navigator>

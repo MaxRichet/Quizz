@@ -1,20 +1,57 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+
+import style from './style.js'
+import Home from './components/Home.js'
+import Quizz from './components/Quizz.js'
+import Settingsquizz from './components/Settingsquizz.js'
+
+const Tab = createBottomTabNavigator()
+const Stack = createNativeStackNavigator()
+
+function HomeScreen(){
+  return(
+    <View style={style.container} >
+      <Home />
+    </View>
+  )
+}
+
+function StartquizzScreen(){
+  return(
+    <Stack.Navigator initialRouteName='Settingsquizz'>
+      <Stack.Screen name='Settingsquizz' component={SettingsquizzScreen} />
+      <Stack.Screen name='Quizz' component={QuizzScreen} />
+    </Stack.Navigator>
+  )
+}
+
+function QuizzScreen({route, navigation}){
+  return(
+    <View style={style.container} >
+      <Quizz route={route} navigation={navigation} />
+    </View>
+  )
+}
+
+function SettingsquizzScreen({route, navigation}){
+  return(
+    <View style={style.container} >
+      <Settingsquizz route={route} navigation={navigation} />
+    </View>
+  )
+}
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="StartQuizz" component={StartquizzScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
